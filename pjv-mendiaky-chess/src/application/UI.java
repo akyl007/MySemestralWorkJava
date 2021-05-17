@@ -48,7 +48,7 @@ public class UI {
             return new ChessPosition(column, row);
         }
         catch (RuntimeException e) {
-            throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
+            throw new InputMismatchException("Error reading ChessPosition. Please choose between a1 and h8.");
         }
     }
 
@@ -59,14 +59,14 @@ public class UI {
         System.out.println();
         System.out.println("Turn : " + chessMatch.getTurn());
         if (!chessMatch.getCheckMate()) {
-            System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+            System.out.println("Waiting for the player: " + chessMatch.getCurrentPlayer());
             if (chessMatch.getCheck()) {
                 System.out.println("CHECK!");
             }
         }
         else {
             System.out.println("CHECKMATE!");
-            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+            System.out.println(chessMatch.getCurrentPlayer()+" won!");
         }
     }
 
