@@ -12,6 +12,9 @@ import org.junit.Test;
 public class BoardTest {
     @Test
     public void removePieceCheck(){
+        /**
+         * Kontrola odstranění figurek z desky
+         */
         ChessMatch cm = new ChessMatch();
         ChessPosition chessPosition = UI.readChessPositionString("b2");
         Position pos = chessPosition.toPosition();
@@ -22,6 +25,9 @@ public class BoardTest {
 
     @Test
     public void positionExistsTest(){
+        /**
+         * Kontrola funkce position exists
+         */
         ChessMatch cm = new ChessMatch();
         ChessPosition chessPosition = UI.readChessPositionString("a2");
         Position pos = chessPosition.toPosition();

@@ -84,7 +84,7 @@ public class ChessMatch {
         validateSourcePosition(source);
         validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
-
+        logger.config("testing for check...");
         if (testCheck(currentPlayer)) {
             undoMove(source, target, capturedPiece);
             throw new ChessException("You can't put yourself in check");
@@ -338,6 +338,8 @@ public class ChessMatch {
         placeNewPiece('g', 2, new Pawn(board, Color.WHITE, this));
         placeNewPiece('h', 2, new Pawn(board, Color.WHITE, this));
 
+        logger.info("White player figures created!");
+
         placeNewPiece('a', 8, new Rook(board, Color.BLACK));
         placeNewPiece('b', 8, new Knight(board, Color.BLACK));
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
@@ -354,5 +356,6 @@ public class ChessMatch {
         placeNewPiece('f', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('g', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('h', 7, new Pawn(board, Color.BLACK, this));
+        logger.info("Black player figures created!");
     }
 }

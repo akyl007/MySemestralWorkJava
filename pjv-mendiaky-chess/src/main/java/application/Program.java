@@ -10,8 +10,10 @@ import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
+import chess.pieces.FigureColors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import gui.Table;
 
 public class Program {
     private static final Logger logger = Logger.getGlobal();
@@ -22,9 +24,12 @@ public class Program {
         Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
         List<ChessPiece> captured = new ArrayList<>();
-
+        logger.info("Match started!");
         while (!chessMatch.getCheckMate()) {
             try {
+                UI.whitePlayerfiguresColor = FigureColors.ANSI_BLUE;
+                UI.blackPlayerfiguresColor = FigureColors.ANSI_GREEN;
+                Table.get().show();
                 UI.clearScreen();
                 UI.printMatch(chessMatch, captured);
                 System.out.println();
@@ -55,7 +60,9 @@ public class Program {
                         System.out.print("Invalid value! Enter piece for promotion (B/N/R/Q): ");
                         type = sc.nextLine().toUpperCase();
                     }
+                    logger.info("Improving pawn to: " + type);
                     chessMatch.replacePromotedPiece(type);
+                    logger.info("Improving success!");
                 }
             }
             catch (ChessException e) {

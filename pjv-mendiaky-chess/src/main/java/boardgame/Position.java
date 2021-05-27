@@ -1,15 +1,23 @@
 package boardgame;
 
+import chess.ChessMatch;
+import chess.ChessPiece;
+import chess.Color;
+
 public class Position {
 
     private int row;
     private int column;
-
+    public ChessMatch chessMatch;
     public Position(int row, int column) {
         this.row = row;
         this.column = column;
     }
 
+    public boolean isThereOpponentPiece(Position position, Color current) {
+        ChessPiece p = (ChessPiece) chessMatch.board.piece(position);
+        return p != null && p.getColor() != current;
+    }
     public int getRow() {
         return row;
     }
