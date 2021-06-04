@@ -1,0 +1,17 @@
+boardgame\GameBoard$1.class
+application\GameUI$1.class
+chess\ChessMatch.class
+chess\Color.class
+boardgame\Pieces.class
+application\GameUI$5.class
+application\GameUI$4.class
+boardgame\GameBoard.class
+application\GameUI.class
+chess\PieceType.class
+application\GameUI$3.class
+boardgame\BoardException.class
+application\SaveLoad.class
+chess\ChessMatch$getMovesInterface.class
+application\GameUI$2.class
+chess\Move.class
+chess\ChessException.class
